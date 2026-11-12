@@ -1,0 +1,2 @@
+/api/* https://spyder-x-cloud-api.onrender.com/api/:splat 200!
+/* /index.html 200

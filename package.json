@@ -1,0 +1,34 @@
+{
+  "name": "spyder-x-cloud",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "dev:api": "node --watch server/index.js",
+    "start:api": "node server/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.4",
+    "firebase": "^13.2.0",
+    "firebase-admin": "^14.5.0",
+    "helmet": "^8.3.0",
+    "lucide-react": "^1.72.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "serverless-http": "^4.0.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^6.3.5"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "^1.14.7"
+  }
+}

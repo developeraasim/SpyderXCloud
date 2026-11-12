@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isVerifiedOwner(uid) {
+      return request.auth != null
+        && request.auth.uid == uid
+        && request.auth.token.email_verified == true;
+    }
+
+    // User profile access is limited to the matching, email-verified account.
+    // Privileged fields (roles, plan status, credits, payment state) are never client-writable.
+    match /users/{uid} {
+      allow read: if isVerifiedOwner(uid);
+      allow create: if isVerifiedOwner(uid)
+        && request.resource.data.keys().hasOnly(['uid', 'email', 'displayName', 'emailVerified', 'createdAt', 'lastSignInAt'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.emailVerified == true
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() <= 100;
+      allow update: if isVerifiedOwner(uid)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['displayName', 'lastSignInAt'])
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() <= 100;
+      allow delete: if false;
+    }
+
+    // Catalog, orders, balances, and payment records are server-managed via Firebase Admin.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

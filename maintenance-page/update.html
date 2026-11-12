@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070707" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Under Maintenance — SPYDER X CLOUD</title>
+  <meta name="description" content="SPYDER X CLOUD is being updated. Please check back soon." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23f5f5f5'/%3E%3Cpath d='M50 17 81 48H64v35H36V48H19z' fill='%23070707'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      background: #070707;
+      color: #f5f5f5;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 42%, rgba(255,255,255,.055), transparent 34%),
+        #070707;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 58px 58px;
+      content: "";
+      mask-image: radial-gradient(ellipse at center, #000 10%, transparent 76%);
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      min-height: 100vh;
+      min-height: 100svh;
+      place-items: center;
+      padding: 32px 20px;
+    }
+
+    .maintenance {
+      width: min(100%, 620px);
+      text-align: center;
+      animation: rise-in .8s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: clamp(52px, 10vh, 94px);
+      color: #f5f5f5;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 11px;
+      background: #f5f5f5;
+      color: #070707;
+      box-shadow: 0 0 28px rgba(255,255,255,.14);
+    }
+
+    .brand-mark svg { width: 21px; height: 21px; }
+
+    .brand-name {
+      font-size: 14px;
+      font-weight: 750;
+      letter-spacing: .09em;
+    }
+
+    .brand-name span {
+      display: block;
+      margin-top: 3px;
+      color: #777;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .19em;
+    }
+
+    .artwork {
+      position: relative;
+      display: grid;
+      width: 142px;
+      height: 142px;
+      margin: 0 auto 34px;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 42px;
+      background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.015));
+      box-shadow: 0 24px 90px rgba(0,0,0,.4), inset 0 1px rgba(255,255,255,.07);
+      transform: rotate(-5deg);
+    }
+
+    .artwork::before,
+    .artwork::after {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      content: "";
+      animation: orbit 12s linear infinite;
+    }
+
+    .artwork::before { inset: -15px; border-right-color: rgba(255,255,255,.48); }
+    .artwork::after { inset: -29px; border-left-color: rgba(255,255,255,.27); animation-direction: reverse; animation-duration: 18s; }
+
+    .tools-icon {
+      width: 62px;
+      height: 62px;
+      color: #f5f5f5;
+      transform: rotate(5deg);
+      filter: drop-shadow(0 0 18px rgba(255,255,255,.18));
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 20px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,.035);
+      color: #c6c6c6;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #e8e8e8;
+      box-shadow: 0 0 12px rgba(255,255,255,.65);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 4.65rem);
+      font-weight: 700;
+      letter-spacing: -.065em;
+      line-height: .98;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 8px;
+      color: #777;
+      font-weight: 500;
+    }
+
+    .message {
+      max-width: 430px;
+      margin: 24px auto 0;
+      color: #999;
+      font-size: clamp(15px, 2.8vw, 17px);
+      line-height: 1.7;
+    }
+
+    .actions { margin-top: 32px; }
+
+    .retry {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 21px;
+      border: 1px solid #f5f5f5;
+      border-radius: 9px;
+      background: #f5f5f5;
+      color: #080808;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      cursor: pointer;
+    }
+
+    .retry:hover {
+      transform: translateY(-2px);
+      background: #fff;
+      box-shadow: 0 10px 32px rgba(255,255,255,.15);
+    }
+
+    .retry:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+    .retry svg { width: 16px; height: 16px; }
+
+    .footer {
+      position: absolute;
+      right: 20px;
+      bottom: 22px;
+      left: 20px;
+      color: #555;
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-align: center;
+    }
+
+    @keyframes pulse { 50% { opacity: .42; transform: scale(.78); } }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-height: 700px) {
+      .brand { margin-bottom: 44px; }
+      .artwork { width: 112px; height: 112px; margin-bottom: 25px; border-radius: 34px; }
+      .tools-icon { width: 52px; height: 52px; }
+      .message { margin-top: 17px; }
+      .actions { margin-top: 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+      .retry { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="maintenance" aria-labelledby="page-title">
+      <a class="brand" href="/" aria-label="SPYDER X CLOUD home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.8 21 12h-5v9H8v-9H3l9-9.2Z" fill="currentColor"/></svg>
+        </span>
+        <span class="brand-name">SPYDER X CLOUD<span>HOSTING · DIGITAL · SOFTWARE</span></span>
+      </a>
+
+      <div class="artwork" aria-hidden="true">
+        <svg class="tools-icon" viewBox="0 0 64 64" fill="none">
+          <path d="M39.6 9.2a17 17 0 0 0-20.4 21.5L8.7 41.2a8.3 8.3 0 1 0 11.8 11.7l10.5-10.5a17 17 0 0 0 21.5-20.3l-9.4 9.4-9.6-1.6-1.6-9.6 9.4-9.5h-1.7Z" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="m14.1 45.9 4 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="status"><span class="status-dot" aria-hidden="true"></span>Site maintenance</div>
+      <h1 id="page-title">We’ll be back<span>shortly.</span></h1>
+      <p class="message">We’re making a few updates behind the scenes. Our website is currently under maintenance and development. Please try again later — thanks for your patience.</p>
+      <div class="actions">
+        <button class="retry" type="button" onclick="window.location.reload()">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4.9 9a7.5 7.5 0 0 1 12.6-2L20 12M4 17v-5h5m10.1 3a7.5 7.5 0 0 1-12.6 2L4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Try again
+        </button>
+      </div>
+    </section>
+    <footer class="footer">&copy; <span id="year">2026</span> SPYDER X CLOUD. Thank you for your patience.</footer>
+  </main>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
