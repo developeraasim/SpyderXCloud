@@ -2,15 +2,14 @@ import cors from 'cors';
 import express from 'express';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 import healthRouter from './routes/health.js';
 import clientRouter from './routes/client.js';
 import { env } from './config/env.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 
 export const app = express();
-const distDirectory = resolve(dirname(fileURLToPath(import.meta.url)), '../dist');
+const distDirectory = resolve(process.cwd(), 'dist');
 
 app.disable('x-powered-by');
 app.set('trust proxy', env.TRUST_PROXY_HOPS);
