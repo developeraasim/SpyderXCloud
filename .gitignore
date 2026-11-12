@@ -5,6 +5,7 @@ dist/
 .env
 .env.*
 !.env.example
+.netlify-env-import.tmp
 *.pem
 *.key
 secrets/
