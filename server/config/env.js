@@ -4,7 +4,7 @@ import { z } from 'zod';
 const EnvSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   PORT: z.coerce.number().int().min(1).max(65535).default(4000),
-  FRONTEND_ORIGINS: z.string().default('http://localhost:5173'),
+  FRONTEND_ORIGINS: z.string().default('http://localhost:5173,https://spyderxcloud.in,https://www.spyderxcloud.in'),
   TRUST_PROXY_HOPS: z.coerce.number().int().min(0).max(5).default(0),
   FIREBASE_PROJECT_ID: z.string().optional(),
   FIREBASE_ADMIN_SERVICE_ACCOUNT_JSON: z.string().optional(),

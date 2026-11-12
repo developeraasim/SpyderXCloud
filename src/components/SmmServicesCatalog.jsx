@@ -36,14 +36,14 @@ async function apiRequest(url, token, appCheckToken, body) {
       body: JSON.stringify(body),
     });
   } catch {
-    throw new Error('The API is unreachable. Check that the Render API is deployed and api.spyderxcloud.in DNS/proxy is configured. If you already opened checkout, verify that order before trying again.');
+    throw new Error('The API is unreachable. Check the Netlify deploy, Functions settings, and /api redirect. If checkout was already opened, verify that order before trying again.');
   }
   const responseBody = await response.text();
   let result = null;
   try { result = JSON.parse(responseBody); } catch { /* The host may return an HTML error page. */ }
   if (!response.ok) {
     throw new Error(result?.error || (response.status >= 500
-      ? `The API returned HTTP ${response.status}. Check Render deployment, DNS/proxy, and server logs. If checkout was opened, verify the existing order instead of paying again.`
+      ? `The API returned HTTP ${response.status}. Check Netlify Function logs and server environment variables. If checkout was opened, verify the existing order instead of paying again.`
       : `Request failed (${response.status}).`));
   }
   if (!result || typeof result !== 'object') throw new Error('The API returned an invalid response. Check the API deployment and proxy.');
